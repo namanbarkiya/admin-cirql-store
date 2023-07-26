@@ -30,7 +30,6 @@ export const StoreModal = () => {
     const { toast } = useToast();
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log("hello");
         try {
             setLoading(true);
             const res = await axios.post("/api/stores", values);
@@ -59,8 +58,8 @@ export const StoreModal = () => {
 
     return (
         <Modal
-            title="Hello"
-            description="hello"
+            title="Create Store"
+            description="fill the form to create a new store"
             isOpen={modalStore.isOpen}
             onClose={modalStore.onClose}
         >
@@ -89,6 +88,7 @@ export const StoreModal = () => {
                                 <Button
                                     onClick={modalStore.onClose}
                                     disabled={loading}
+                                    type="button"
                                 >
                                     Cancel
                                 </Button>
