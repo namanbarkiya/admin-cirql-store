@@ -3,6 +3,11 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs";
 import React from "react";
 
+function isValidMongoDBObjectId(id: string): boolean {
+    const objectIdPattern = /^[0-9a-fA-F]{24}$/;
+    return objectIdPattern.test(id);
+}
+
 export default async function DashboardLayout({
     children,
     params,
@@ -13,6 +18,10 @@ export default async function DashboardLayout({
     const { userId } = auth();
     if (!userId) {
         redirect("/sign-in");
+    }
+
+    if (!isValidMongoDBObjectId(params.storeId)) {
+        redirect(`/`);
     }
 
     const firstStoreWithId = await prismadb.store.findFirst({

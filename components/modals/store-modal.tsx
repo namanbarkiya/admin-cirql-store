@@ -1,8 +1,8 @@
 "use client";
 
 import * as z from "zod";
-import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useModalStore } from "@/hooks/use-modal-store";
@@ -33,12 +33,14 @@ export const StoreModal = () => {
         try {
             setLoading(true);
             const res = await axios.post("/api/stores", values);
-            toast({
-                variant: "primary",
-                title: "Store Created!",
-                description: "The store was created successfully",
-            });
+            // toast({
+            //     variant: "primary",
+            //     title: "Store Created!",
+            //     description: "The store was created successfully",
+            // });
+            window.location.assign(`/${res.data.id}`);
         } catch (err: any) {
+            console.log(err);
             toast({
                 variant: "destructive",
                 title: `"Uh oh! Something went wrong."`,
