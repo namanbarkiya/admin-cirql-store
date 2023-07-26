@@ -1,7 +1,8 @@
-import prismadb from "@/lib/prismadb";
+import React from "react";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs";
-import React from "react";
+
+import prismadb from "@/lib/prismadb";
 
 export default async function RootLayout({
     children,

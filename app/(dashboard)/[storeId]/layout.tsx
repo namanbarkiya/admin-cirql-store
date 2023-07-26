@@ -1,12 +1,9 @@
-import prismadb from "@/lib/prismadb";
+import React from "react";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs";
-import React from "react";
 
-function isValidMongoDBObjectId(id: string): boolean {
-    const objectIdPattern = /^[0-9a-fA-F]{24}$/;
-    return objectIdPattern.test(id);
-}
+import prismadb from "@/lib/prismadb";
+import { isValidMongoDBObjectId } from "@/lib/mongo-helpers";
 
 export default async function DashboardLayout({
     children,
