@@ -13,7 +13,6 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
     return (
         <div className="flex">
             <div>dashboard: {store?.name}</div>
-            <footer className="fixed bottom-0 overflow-hidden ">Test</footer>
         </div>
     );
 }
