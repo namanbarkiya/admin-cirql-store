@@ -10,5 +10,10 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
             id: params.storeId,
         },
     });
-    return <div className="flex">dashboard: {store?.name}</div>;
+    return (
+        <div className="flex">
+            <div>dashboard: {store?.name}</div>
+            <footer className="fixed bottom-0 overflow-hidden ">Test</footer>
+        </div>
+    );
 }

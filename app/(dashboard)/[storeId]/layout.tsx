@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs";
 
 import prismadb from "@/lib/prismadb";
 import { isValidMongoDBObjectId } from "@/lib/mongo-helpers";
+import Navbar from "@/components/navbar/navbar";
 
 export default async function DashboardLayout({
     children,
@@ -34,7 +35,7 @@ export default async function DashboardLayout({
 
     return (
         <>
-            <div>navbar</div>
+            <Navbar />
             {children}
         </>
     );
